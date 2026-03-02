@@ -1,0 +1,22 @@
+<h1>Your Tasks</h1>
+<form action="/tasks/add" method="POST">
+  <input name="content" placeholder="New task" required />
+  <button type="submit">Add</button>
+</form>
+
+<ul>
+  <% tasks.forEach(task => { %>
+    <li>
+      <form action="/tasks/toggle/<%= task._id %>" method="POST" style="display:inline">
+        <button><%= task.completed ? '✅' : '❌' %></button>
+      </form>
+      <%= task.content %>
+      <form action="/tasks/delete/<%= task._id %>" method="POST" style="display:inline">
+        <button>🗑️</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+<a href="/logout">Logout</a>
+
+

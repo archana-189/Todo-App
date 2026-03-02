@@ -1,0 +1,8 @@
+<h1>Admin Panel</h1>
+<ul>
+  <% users.forEach(user => { %>
+    <li><%= user.username %> - <%= user.isAdmin ? "Admin" : "User" %></li>
+  <% }) %>
+</ul>
+<a href="/logout">Logout</a>
+
